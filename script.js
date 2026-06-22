@@ -16,8 +16,6 @@ let filme = "";
 let data = "";
 let hora = "";
 
-alert("Nosso encontro foi marcado!")
-
 function fugir(){
 
     let botoes = document.getElementById("nao");
