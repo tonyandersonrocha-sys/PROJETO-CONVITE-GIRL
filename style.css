@@ -1,277 +1,173 @@
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+
+h1{ 
+    color:red;
+    font-size:40px;
+}
+button{
+    padding:10px 20px;
+    font-size:18px;
+    font-style:inherit ;
+    margin:20px;
+    border-radius: 100px;
+    color:blueviolet;
+}
+.opcao{
+
+    width:150px;
+    height:150px;
+
+    border-radius:20px;
+
+    font-size:18px;
+}
+#tela2{
+    display:none;
+    color:violet;
+}
+#tela3{
+    display:none;
 }
 
-body {
-  min-height: 100vh;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #080606;
-  color: white;
-  overflow-x: hidden;
+#tela4{
+    display:none;
+}
+#tela5{
+    display:none;
+}
+#tela6{
+    display:none;
+}
+#tela7{
+    display:none;
+}
+#tela8{
+    display:none;
+}
+#resumo{
+    white-space: pre-line;
+    text-align: left;
+    color: white;
+    font-size: 18px;
+    margin: 20px;
 }
 
-/* Fundo com corações */
-.coracoes span {
-  position: fixed;
-  z-index: 0;
-  font-size: 28px;
-  opacity: 0.55;
-  animation: flutuar 8s linear infinite;
-  pointer-events: none;
+body{
+
+text-align:center;
+
+background:black;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:100vh;
+
+overflow:hidden;
+
 }
 
-.coracoes span:nth-child(1) { left: 8%; top: 10%; animation-delay: 0s; }
-.coracoes span:nth-child(2) { left: 80%; top: 15%; animation-delay: 2s; }
-.coracoes span:nth-child(3) { left: 20%; top: 75%; animation-delay: 4s; }
-.coracoes span:nth-child(4) { left: 70%; top: 80%; animation-delay: 1s; }
-.coracoes span:nth-child(5) { left: 45%; top: 5%; animation-delay: 5s; }
-.coracoes span:nth-child(6) { left: 90%; top: 55%; animation-delay: 3s; }
-.coracoes span:nth-child(7) { left: 5%; top: 45%; animation-delay: 6s; }
-.coracoes span:nth-child(8) { left: 55%; top: 90%; animation-delay: 2.5s; }
+.card{
 
-@keyframes flutuar {
-  0% {
-    transform: translateY(0) scale(0.8) rotate(0deg);
-  }
+width:320px;
 
-  50% {
-    transform: translateY(-45px) scale(1.15) rotate(15deg);
-  }
+background:#3b1b1b;
 
-  100% {
-    transform: translateY(0) scale(0.8) rotate(0deg);
-  }
+padding:30px;
+
+border-radius:30px;
+
+box-shadow:
+0 10px 40px rgba(0,0,0,.4);
+
 }
 
-/* Estrutura tipo aplicativo */
-.app {
-  min-height: 100vh;
-  width: 100%;
-  max-width: 520px;
-  margin: auto;
-  padding: 25px 16px;
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.emoji{
+
+font-size:120px;
+
+margin-bottom:20px;
+
 }
 
-.tela {
-  width: 100%;
-  display: none;
-  text-align: center;
+.botoes{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+position:relative;
+
+height:80px;
+
 }
 
-.tela.ativa {
-  display: block;
+button{
+
+width:120px;
+
+height:60px;
+
+border:none;
+
+border-radius:40px;
+
+font-size:22px;
+
 }
 
-.card {
-  width: 100%;
-  max-width: 440px;
-  margin: auto;
-  padding: 34px 24px;
-  border-radius: 32px;
-  background: linear-gradient(145deg, #4a211f, #241111);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+#sim{
+
+width:100px;
+
+height:60px;
+
+position:relative;
+
 }
 
-.convite-card {
-  min-height: 480px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+#nao{
+
+position:absolute;
+
+width:100px;
+
+height:60px;
+
+right:0;
+
 }
 
-.final-card {
-  background: linear-gradient(145deg, #5a251f, #2c1212);
+#mensagem{
+
+color:white;
+
+height:40px;
+
+font-size:20px;
+
+margin-bottom:20px;
+
 }
 
-h1 {
-  color: #ff3d32;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(28px, 7vw, 42px);
-  line-height: 1.08;
-  margin-bottom: 18px;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-}
+input{
 
-.emoji-grande {
-  font-size: 95px;
-  margin-bottom: 18px;
-}
+width:260px;
 
-.emoji-grande.menor {
-  font-size: 68px;
-}
+height:60px;
 
-.texto-card,
-.frase-final,
-.escolhido {
-  font-size: 18px;
-  line-height: 1.4;
-  color: #fff;
-  margin: 15px 0 20px;
-}
+font-size:20px;
 
-.frase-final {
-  font-weight: bold;
-  color: #ffd6c9;
-}
+margin:15px;
 
-.mensagem {
-  min-height: 28px;
-  color: #ffd7d0;
-  font-size: 18px;
-  margin-bottom: 12px;
-}
+border-radius:20px;
 
-/* Botões */
-button {
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  font-size: 17px;
-  transition: transform 0.2s, filter 0.2s, background 0.2s;
-}
+padding:10px;
 
-button:active {
-  transform: scale(0.96);
-}
+cursor:pointer;
 
-.botao {
-  min-height: 58px;
-  padding: 12px 20px;
-  border-radius: 999px;
-  color: #7e2cff;
-  background: #f7f5f7;
-  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.18);
-}
-
-.botao:hover {
-  filter: brightness(0.94);
-}
-
-.botao-sim,
-.botao-nao {
-  width: 120px;
-}
-
-.botoes-principais {
-  position: relative;
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  margin-top: 15px;
-}
-
-.botao-nao {
-  position: relative;
-}
-
-.botao-largo {
-  width: 100%;
-  margin-top: 10px;
-}
-
-.desativado {
-  opacity: 0.55;
-  cursor: not-allowed;
-}
-
-/* Inputs */
-label {
-  display: block;
-  text-align: left;
-  margin: 16px 0 7px;
-  font-size: 16px;
-  font-weight: bold;
-  color: #ffd7d0;
-}
-
-input {
-  width: 100%;
-  min-height: 60px;
-  border: 2px solid rgba(255, 255, 255, 0.22);
-  border-radius: 18px;
-  padding: 12px;
-  font-size: 18px;
-  color: white;
-  background: rgba(0, 0, 0, 0.25);
-  color-scheme: dark;
-}
-
-/* Opções */
-.grade-opcoes {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.uma-coluna {
-  grid-template-columns: 1fr;
-}
-
-.opcao {
-  width: 100%;
-  min-height: 68px;
-  padding: 10px 12px;
-  border-radius: 20px;
-  color: #7e2cff;
-  background: #f7f5f7;
-  font-size: 16px;
-  line-height: 1.2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-.opcao.selecionada {
-  background: #ff4d42;
-  color: white;
-  outline: 3px solid rgba(255, 255, 255, 0.25);
-}
-
-.resumo {
-  margin-top: 22px;
-  padding: 18px;
-  border-radius: 20px;
-  background: rgba(0, 0, 0, 0.28);
-  text-align: left;
-  white-space: pre-line;
-  font-size: 17px;
-  line-height: 1.65;
-  color: white;
-}
-
-@media (max-width: 380px) {
-  .app {
-    padding: 18px 12px;
-  }
-
-  .card {
-    padding: 28px 18px;
-  }
-
-  .grade-opcoes {
-    gap: 9px;
-  }
-
-  .opcao {
-    font-size: 14px;
-    min-height: 64px;
-  }
-
-  .botao-sim,
-  .botao-nao {
-    width: 105px;
-  }
 }
