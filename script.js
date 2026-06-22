@@ -18,18 +18,27 @@ let hora = "";
 
 function fugir(){
 
-    let botoes = document.getElementById("nao");
-    botoes.innerHTML = frases[contador];
+    let botaoNao = document.getElementById("nao");
 
-    let x = Math.random() * 400;
-    let y = Math.random() * 500;
+    botaoNao.innerHTML = frases[contador];
 
-    botoes.style.position = "absolute";
-    botoes.style.left = x + "px";
-    botoes.style.top = y + "px";
+    let area = document.querySelector(".botoes");
 
-    document.getElementById("mensagem").innerHTML =
-    frases[contador];   
+    let larguraArea = area.clientWidth;
+    let alturaArea = area.clientHeight;
+
+    let larguraBotao = botaoNao.offsetWidth;
+    let alturaBotao = botaoNao.offsetHeight;
+
+    let maxX = larguraArea - larguraBotao;
+    let maxY = alturaArea - alturaBotao;
+
+    let x = Math.random() * maxX;
+    let y = Math.random() * maxY;
+
+    botaoNao.style.position = "absolute";
+    botaoNao.style.left = x + "px";
+    botaoNao.style.top = y + "px";
 
     contador++;
 
@@ -85,24 +94,33 @@ document.getElementById("tela4").style.display = "block";
 
 function tela5(){
 
+    if(comida === ""){
+        alert("Escolha primeiro o que você está afim 👆");
+        return;
+    }
+
     document.getElementById("tela4").style.display = "none";
-
     document.getElementById("tela5").style.display = "block";
-
 }
 function tela6(){
 
+    if(atividade === ""){
+        alert("Escolha primeiro qual é a vibe 👆");
+        return;
+    }
+
     document.getElementById("tela5").style.display = "none";
-
     document.getElementById("tela6").style.display = "block";
-
 }
 function tela7(){
 
+    if(cinema === ""){
+        alert("Escolha primeiro o cinema 👆");
+        return;
+    }
+
     document.getElementById("tela6").style.display = "none";
-
     document.getElementById("tela7").style.display = "block";
-
 }
 
 function tela8(){
@@ -162,6 +180,10 @@ function escolherFilme(valor){
 }
 
 function finalizar(){
+    if(filme === ""){
+    alert("Escolha primeiro o filme 🍿");
+    return;
+}
 
 document.getElementById("tela7").style.display = "none";
 document.getElementById("tela8").style.display = "block";
