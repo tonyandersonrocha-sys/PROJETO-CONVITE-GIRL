@@ -1,0 +1,157 @@
+
+h1{ 
+    color:red;
+    font-size:40px;
+}
+button{
+    padding:10px 20px;
+    font-size:18px;
+    font-style:inherit ;
+    margin:20px;
+    border-radius: 100px;
+    color:blueviolet;
+}
+.opcao{
+
+    width:150px;
+    height:150px;
+
+    border-radius:20px;
+
+    font-size:18px;
+}
+#tela2{
+    display:none;
+    color:violet;
+}
+#tela3{
+    display:none;
+}
+
+#tela4{
+    display:none;
+}
+#tela5{
+    display:none;
+}
+#tela6{
+    display:none;
+}
+#tela7{
+    display:none;
+}
+#tela8{
+    display:none;
+}
+#resumo{
+    white-space: pre-line;
+    text-align: left;
+    color: white;
+    font-size: 18px;
+    margin: 20px;
+}
+
+body{
+
+text-align:center;
+
+background:black;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+height:100vh;
+
+overflow:hidden;
+
+}
+
+.card{
+
+width:320px;
+
+background:#3b1b1b;
+
+padding:30px;
+
+border-radius:30px;
+
+box-shadow:
+0 10px 40px rgba(0,0,0,.4);
+
+}
+
+.emoji{
+
+font-size:120px;
+
+margin-bottom:20px;
+
+}
+
+.botoes{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+position:relative;
+
+height:80px;
+
+}
+
+button{
+
+width:120px;
+
+height:60px;
+
+border:none;
+
+border-radius:40px;
+
+font-size:22px;
+
+}
+
+#sim{
+
+width:100px;
+
+height:60px;
+
+position:relative;
+
+}
+
+#nao{
+
+position:absolute;
+
+width:100px;
+
+height:60px;
+
+right:0;
+
+}
+
+#mensagem{
+
+color:white;
+
+height:40px;
+
+font-size:20px;
+
+margin-bottom:20px;
+
+}
+
+
