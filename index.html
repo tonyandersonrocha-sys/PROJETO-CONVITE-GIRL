@@ -1,142 +1,184 @@
-<!DOCTYPE html> 
-<html>
-
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-    <title>Nosso Encontro</title>
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosso Encontro 🤎</title>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div id="tela1">
-        <div class="card">
-            <div class="emoji">
-                🥺
-            </div>
-            <h1>VOCÊ ACEITA SAIR COMIGO?</h1>
-            <p id="mensagem"></p>
-            <div class="botoes">
-                <button id="sim" 
-                onclick="aceitar()">
-                SIM
-                </button>
 
-                <button id="nao" 
-                onmouseover="fugir()"> 
-                    NÃO
-                </button>
-            </div>
+  <div class="coracoes">
+    <span>🤎</span>
+    <span>🖤</span>
+    <span>🤎</span>
+    <span>🖤</span>
+    <span>🤎</span>
+    <span>🖤</span>
+    <span>🤎</span>
+    <span>🖤</span>
+  </div>
+
+  <main class="app">
+
+    <!-- TELA 1 -->
+    <section id="tela1" class="tela ativa">
+      <div class="card convite-card">
+        <div class="emoji-grande">🥺</div>
+
+        <h1>VOCÊ ACEITA<br>SAIR COMIGO?</h1>
+
+        <p id="mensagem" class="mensagem"></p>
+
+        <div id="areaBotoes" class="botoes-principais">
+          <button id="sim" class="botao botao-sim" onclick="aceitar()">
+            SIM
+          </button>
+
+          <button id="nao" class="botao botao-nao"
+            onmouseenter="fugir()"
+            ontouchstart="fugir()">
+            NÃO
+          </button>
         </div>
-    </div>
+      </div>
+    </section>
 
-    <div id="tela2">
-        <h1>Sabia que você ia aceitar 😎</h1>
-        <p>🐧🌹</p>
-        <button onclick="proximaTela()">
-        PRÓXIMO
+    <!-- TELA 2 -->
+    <section id="tela2" class="tela">
+      <div class="card">
+        <div class="emoji-grande">🐧🌹</div>
+        <h1>EU SABIA QUE VOCÊ IA ACEITAR 😎</h1>
+        <p class="texto-card">
+          Agora vamos montar nosso date do jeitinho que você gosta.
+        </p>
+
+        <button class="botao botao-largo" onclick="proximaTela()">
+          PRÓXIMO →
         </button>
-    </div>   
-    
-    <div id="tela3">
-        <h1>Quando você está livre? 🤔</h1>
+      </div>
+    </section>
+
+    <!-- TELA 3 -->
+    <section id="tela3" class="tela">
+      <div class="card">
+        <div class="emoji-grande menor">📅</div>
+        <h1>QUANDO VOCÊ ESTÁ LIVRE?</h1>
+
+        <label for="data">Escolha a data</label>
         <input id="data" type="date">
+
+        <label for="hora">Escolha o horário</label>
         <input id="hora" type="time">
-        <button onclick="tela4()">
-        PRÓXIMO
-        </button>
-    </div>
 
-    <div id="tela4">
-        <h1>O que você está afim? 😏</h1>
-        <button onclick="escolherComida('🍔')">
-            🍔 Hambúrguer
+        <button class="botao botao-largo" onclick="irParaComida()">
+          CONTINUAR →
         </button>
-        <button onclick="escolherComida('🍕 Pizza')">
-            🍕 Pizza
-        </button>
-        <button onclick="escolherComida('🥤 Combo Pipoca + Refri')">
-            🥤 Combo Pipoca + Refri
-        </button>
-        <button onclick="escolherComida('🍧 Açaí')">
-            🍧 Açaí
-        </button>
-        <p id="comidaEscolhida">
-            Escolha primeiro 👆
-        </p>
-        <button id="btnComida" onclick="tela5()">
-            Escolha primeiro 👆
-        </button>
-    </div>
+      </div>
+    </section>
 
-    <div id="tela5">
-        <h1>Qual a vibe?</h1>
-        <button onclick="escolherAtividade('🎬 Cinema')">
-            🎬 Cinema
-        </button>
-        <button onclick="escolherAtividade('🏖 Praia')">
-            🏖 Praia
-        </button>
-        <button onclick="escolherAtividade('🚶 Caminhada')">
-            🚶 Caminhada
-        </button>
-        <button onclick="escolherAtividade('🎳 Boliche')">
-            🎳 Boliche
-        </button>
-        <p id="atividadeEscolhida">
-            Escolha primeiro 👆
-        </p>
-        <button id="btnAtividade" onclick="tela6()">
-            Escolha primeiro 👆
-        </button>
-    </div>
+    <!-- TELA 4 -->
+    <section id="tela4" class="tela">
+      <div class="card card-opcoes">
+        <div class="emoji-grande menor">😏</div>
+        <h1>O QUE VOCÊ ESTÁ AFIM?</h1>
 
-    <div id="tela6">
-        <h1>🎬 Qual cinema?</h1>
-        <button onclick="escolherCinema('Cinemark Eldorado')">
-        Cinemark Eldorado
-        </button>
-        <button onclick="escolherCinema('Cine Araújo Taboão')">
-        Cine Araújo Taboão
-        </button>
-        <button onclick="escolherCinema('Cine Araújo Campo Limpo')">
-        Cine Araújo Campo Limpo
-        </button>
-        <button onclick="escolherCinema('Cine Itapecerica')">
-        Cine Itapecerica
-        </button>
-        <p id="cinemaEscolhido">
-            Escolha primeiro 👆
-        </p>
-        <button id="btnCinema" onclick="tela7()">
-            Escolha primeiro 👆
-        </button>
-    </div>
-    <div id="tela7">
-        <h1>🍿 Qual filme?</h1>
-        <button onclick="escolherFilme('Homem-Aranha: Um Novo Dia')">
-            Homem-Aranha: Um Novo Dia
-        </button>
-        <button onclick="escolherFilme('A Odisseia')">
-            A Odisseia
-        </button>
-        <button onclick="escolherFilme('Super Girl')">
-            Super Girl
-        </button>
-        <button onclick="escolherFilme('Moana')">
-            Moana
-        </button>
-        <p id="filmeEscolhido">
-            Escolha primeiro 👆
-        </p>
-        <button id="btnFilme" onclick="finalizar()">
-            Escolha primeiro 👆
-        </button>
-    </div>
+        <div class="grade-opcoes">
+          <button class="opcao" onclick="escolherComida('🍔 Hambúrguer', this)">🍔 Hambúrguer</button>
+          <button class="opcao" onclick="escolherComida('🍕 Pizza', this)">🍕 Pizza</button>
+          <button class="opcao" onclick="escolherComida('🥤 Combo Pipoca + Refri', this)">🥤 Combo Pipoca + Refri</button>
+          <button class="opcao" onclick="escolherComida('🍧 Açaí', this)">🍧 Açaí</button>
+        </div>
 
-    <div id="tela8">
-        <h1>🎉 To contigo, morena 🤎!</h1>
-        <p id="resumo"></p>
-    </div>
-    <script src="script.js"></script>
-    </body>
+        <p id="comidaEscolhida" class="escolhido">Escolha uma opção 👆</p>
+
+        <button id="btnComida" class="botao botao-largo desativado" onclick="irParaVibe()" disabled>
+          ESCOLHA PRIMEIRO 👆
+        </button>
+      </div>
+    </section>
+
+    <!-- TELA 5 -->
+    <section id="tela5" class="tela">
+      <div class="card card-opcoes">
+        <div class="emoji-grande menor">✨</div>
+        <h1>QUAL A VIBE?</h1>
+
+        <div class="grade-opcoes">
+          <button class="opcao" onclick="escolherAtividade('🎬 Cinema', this)">🎬 Cinema</button>
+          <button class="opcao" onclick="escolherAtividade('🏖 Praia', this)">🏖 Praia</button>
+          <button class="opcao" onclick="escolherAtividade('🚶 Caminhada', this)">🚶 Caminhada</button>
+          <button class="opcao" onclick="escolherAtividade('🎳 Boliche', this)">🎳 Boliche</button>
+        </div>
+
+        <p id="atividadeEscolhida" class="escolhido">Escolha uma opção 👆</p>
+
+        <button id="btnAtividade" class="botao botao-largo desativado" onclick="continuarDepoisDaVibe()" disabled>
+          ESCOLHA PRIMEIRO 👆
+        </button>
+      </div>
+    </section>
+
+    <!-- TELA 6 -->
+    <section id="tela6" class="tela">
+      <div class="card card-opcoes">
+        <div class="emoji-grande menor">🎬</div>
+        <h1>QUAL CINEMA?</h1>
+
+        <div class="grade-opcoes uma-coluna">
+          <button class="opcao" onclick="escolherCinema('Cinemark Eldorado', this)">Cinemark Eldorado</button>
+          <button class="opcao" onclick="escolherCinema('Cine Araújo Taboão', this)">Cine Araújo Taboão</button>
+          <button class="opcao" onclick="escolherCinema('Cine Araújo Campo Limpo', this)">Cine Araújo Campo Limpo</button>
+          <button class="opcao" onclick="escolherCinema('Cine Itapecerica', this)">Cine Itapecerica</button>
+        </div>
+
+        <p id="cinemaEscolhido" class="escolhido">Escolha uma opção 👆</p>
+
+        <button id="btnCinema" class="botao botao-largo desativado" onclick="irParaFilme()" disabled>
+          ESCOLHA PRIMEIRO 👆
+        </button>
+      </div>
+    </section>
+
+    <!-- TELA 7 -->
+    <section id="tela7" class="tela">
+      <div class="card card-opcoes">
+        <div class="emoji-grande menor">🍿</div>
+        <h1>QUAL FILME?</h1>
+
+        <div class="grade-opcoes uma-coluna">
+          <button class="opcao" onclick="escolherFilme('Homem-Aranha: Um Novo Dia', this)">Homem-Aranha: Um Novo Dia</button>
+          <button class="opcao" onclick="escolherFilme('A Odisseia', this)">A Odisseia</button>
+          <button class="opcao" onclick="escolherFilme('Supergirl', this)">Supergirl</button>
+          <button class="opcao" onclick="escolherFilme('Moana', this)">Moana</button>
+        </div>
+
+        <p id="filmeEscolhido" class="escolhido">Escolha uma opção 👆</p>
+
+        <button id="btnFilme" class="botao botao-largo desativado" onclick="finalizar()" disabled>
+          ESCOLHA PRIMEIRO 👆
+        </button>
+      </div>
+    </section>
+
+    <!-- TELA FINAL -->
+    <section id="tela8" class="tela">
+      <div class="card final-card">
+        <div class="emoji-grande">🐧🌹</div>
+
+        <h1>TÔ CONTIGO,<br>GATINHA 🤎</h1>
+
+        <p class="frase-final">
+          Fica pronta que eu vou te buscar! 🚗
+        </p>
+
+        <div id="resumo" class="resumo"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
 </html>
-

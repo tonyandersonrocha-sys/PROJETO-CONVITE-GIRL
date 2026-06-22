@@ -1,10 +1,9 @@
-
 let frases = [
-    "Tem certeza?",
-    "Pensa bem",
-    "Última chance.",
-    "Olha que eu conheço vingadores.",
-    "Please."
+  "Tem certeza? 🥺",
+  "Pensa bem... 😳",
+  "Última chance! 😭",
+  "Olha que eu conheço os Vingadores 😎",
+  "Por favorzinho... 🥺"
 ];
 
 let contador = 0;
@@ -16,176 +15,214 @@ let filme = "";
 let data = "";
 let hora = "";
 
-alert("Nosso encontro foi marcado!")
+/* Troca de tela */
+function mostrarTela(idTela) {
+  document.querySelectorAll(".tela").forEach(function(tela) {
+    tela.classList.remove("ativa");
+  });
 
-function fugir(){
+  document.getElementById(idTela).classList.add("ativa");
+}
 
-    let botoes = document.getElementById("nao");
-    botoes.innerHTML = frases[contador];
+/* Botão NÃO fugindo */
+function fugir() {
+  const botaoNao = document.getElementById("nao");
+  const area = document.getElementById("areaBotoes");
 
-    let x = Math.random() * 400;
-    let y = Math.random() * 500;
+  const larguraArea = area.clientWidth;
+  const alturaArea = area.clientHeight;
 
-    botoes.style.position = "absolute";
-    botoes.style.left = x + "px";
-    botoes.style.top = y + "px";
+  const larguraBotao = botaoNao.offsetWidth;
+  const alturaBotao = botaoNao.offsetHeight;
 
-    document.getElementById("mensagem").innerHTML =
-    frases[contador];   
+  const maxX = larguraArea - larguraBotao;
+  const maxY = alturaArea - alturaBotao;
 
-    contador++;
+  const x = Math.max(0, Math.random() * maxX);
+  const y = Math.max(0, Math.random() * maxY);
 
-    if(contador >= frases.length){
-        contador = 0;
+  botaoNao.style.position = "absolute";
+  botaoNao.style.left = x + "px";
+  botaoNao.style.top = y + "px";
+
+  botaoNao.textContent = frases[contador];
+  document.getElementById("mensagem").textContent = frases[contador];
+
+  contador++;
+
+  if (contador >= frases.length) {
+    contador = 0;
+  }
+}
+
+/* Tela 1 */
+function aceitar() {
+  mostrarTela("tela2");
+}
+
+/* Tela 2 */
+function proximaTela() {
+  mostrarTela("tela3");
+}
+
+/* Data e hora */
+function irParaComida() {
+  data = document.getElementById("data").value;
+  hora = document.getElementById("hora").value;
+
+  if (data === "" || hora === "") {
+    alert("Escolha a data e o horário do nosso encontro 😎");
+    return;
+  }
+
+  mostrarTela("tela4");
+}
+
+/* Comida */
+function escolherComida(valor, botao) {
+  comida = valor;
+
+  document.querySelectorAll("#tela4 .opcao").forEach(function(opcao) {
+    opcao.classList.remove("selecionada");
+  });
+
+  botao.classList.add("selecionada");
+
+  document.getElementById("comidaEscolhida").textContent =
+    "Selecionado: " + valor;
+
+  const btnComida = document.getElementById("btnComida");
+
+  btnComida.textContent = "QUE DELÍCIA, BORA 😎";
+  btnComida.disabled = false;
+  btnComida.classList.remove("desativado");
+}
+
+function irParaVibe() {
+  if (comida === "") {
+    alert("Escolha uma comida primeiro 👆");
+    return;
+  }
+
+  mostrarTela("tela5");
+}
+
+/* Vibe */
+function escolherAtividade(valor, botao) {
+  atividade = valor;
+
+  document.querySelectorAll("#tela5 .opcao").forEach(function(opcao) {
+    opcao.classList.remove("selecionada");
+  });
+
+  botao.classList.add("selecionada");
+
+  document.getElementById("atividadeEscolhida").textContent =
+    "Selecionado: " + valor;
+
+  const btnAtividade = document.getElementById("btnAtividade");
+
+  if (valor === "🎬 Cinema") {
+    btnAtividade.textContent = "ESCOLHER CINEMA →";
+  } else {
+    btnAtividade.textContent = "CONTINUAR →";
+  }
+
+  btnAtividade.disabled = false;
+  btnAtividade.classList.remove("desativado");
+}
+
+function continuarDepoisDaVibe() {
+  if (atividade === "") {
+    alert("Escolha uma vibe primeiro 👆");
+    return;
+  }
+
+  if (atividade === "🎬 Cinema") {
+    mostrarTela("tela6");
+  } else {
+    cinema = "Não se aplica";
+    filme = "Não se aplica";
+    finalizar();
+  }
+}
+
+/* Cinema */
+function escolherCinema(valor, botao) {
+  cinema = valor;
+
+  document.querySelectorAll("#tela6 .opcao").forEach(function(opcao) {
+    opcao.classList.remove("selecionada");
+  });
+
+  botao.classList.add("selecionada");
+
+  document.getElementById("cinemaEscolhido").textContent =
+    "Selecionado: " + valor;
+
+  const btnCinema = document.getElementById("btnCinema");
+
+  btnCinema.textContent = "ESCOLHER FILME →";
+  btnCinema.disabled = false;
+  btnCinema.classList.remove("desativado");
+}
+
+function irParaFilme() {
+  if (cinema === "") {
+    alert("Escolha um cinema primeiro 👆");
+    return;
+  }
+
+  mostrarTela("tela7");
+}
+
+/* Filme */
+function escolherFilme(valor, botao) {
+  filme = valor;
+
+  document.querySelectorAll("#tela7 .opcao").forEach(function(opcao) {
+    opcao.classList.remove("selecionada");
+  });
+
+  botao.classList.add("selecionada");
+
+  document.getElementById("filmeEscolhido").textContent =
+    "Selecionado: " + valor;
+
+  const btnFilme = document.getElementById("btnFilme");
+
+  btnFilme.textContent = "MARCAR NOSSO DATE 🤎";
+  btnFilme.disabled = false;
+  btnFilme.classList.remove("desativado");
+}
+
+/* Final */
+function finalizar() {
+  if (atividade === "🎬 Cinema" && filme === "") {
+    alert("Escolha um filme primeiro 🍿");
+    return;
+  }
+
+  mostrarTela("tela8");
+
+  const dataFormatada = new Date(data + "T00:00:00").toLocaleDateString(
+    "pt-BR",
+    {
+      day: "2-digit",
+      month: "long",
+      year: "numeric"
     }
+  );
+
+  const texto =
+`📅 ${dataFormatada}
+⏰ ${hora}
+
+🍔 ${comida}
+✨ ${atividade}
+
+🎬 ${cinema}
+🍿 ${filme}`;
+
+  document.getElementById("resumo").textContent = texto;
 }
-function aceitar(){
-
-    document.getElementById("tela1").style.display = "none";
-
-    document.getElementById("tela2").style.display = "block";
-
-}
-
-function proximaTela(){
-
-    document.getElementById("tela2").style.display = "none";
-
-    document.getElementById("tela3").style.display = "block";
-
-}
-
-function tela4(){
-
-data =
-document.getElementById("data").value;
-
-hora =
-document.getElementById("hora").value;
-
-if(
-data==="" ||
-hora===""
-){
-
-alert(
-"Escolha data e hora 😎"
-);
-
-return;
-
-}
-
-document
-.getElementById("tela3")
-.style.display=
-"none";
-
-document.getElementById("tela4").style.display = "block";
-
-}
-
-function tela5(){
-
-    document.getElementById("tela4").style.display = "none";
-
-    document.getElementById("tela5").style.display = "block";
-
-}
-function tela6(){
-
-    document.getElementById("tela5").style.display = "none";
-
-    document.getElementById("tela6").style.display = "block";
-
-}
-function tela7(){
-
-    document.getElementById("tela6").style.display = "none";
-
-    document.getElementById("tela7").style.display = "block";
-
-}
-
-function tela8(){
-
-    document.getElementById("tela7").style.display = "none";
-
-    document.getElementById("tela8").style.display = "block";
-
-}
-
-function escolherComida(valor){
-
-    comida = valor;
-
-    document.getElementById("comidaEscolhida").innerHTML =
-    "Selecionado: " + valor;
-
-    document.getElementById("btnComida").innerHTML =
-    "QUE DLÇ BORA 😎";
-
-}
-
-function escolherAtividade(valor){
-
-    atividade = valor;
-
-    document.getElementById("atividadeEscolhida").innerHTML =
-    "Selecionado: " + valor;
-
-    document.getElementById("btnAtividade").innerHTML =
-    "TOP HEIN, CONTINUE 😎";
-
-}
-
-function escolherCinema(valor){
-
-    cinema = valor;
-
-    document.getElementById("cinemaEscolhido").innerHTML =
-    "Selecionado: " + valor;
-
-    document.getElementById("btnCinema").innerHTML =
-    "CINEMINHA BOM, SEGUE 😎";
-
-}
-
-function escolherFilme(valor){
-
-    filme = valor;
-
-    document.getElementById("filmeEscolhido").innerHTML =
-    "Selecionado: " + valor;
-
-    document.getElementById("btnFilme").innerHTML =
-    "AÍ SIM 😎";
-
-}
-
-function finalizar(){
-
-document.getElementById("tela7").style.display = "none";
-document.getElementById("tela8").style.display = "block";
-
-let texto =
-"🤎 Se prepara que no dia e hora marcados eu vou te buscar!\n\n" +
-
-"📅 Data: " + (data || "não escolhida") + "\n" +
-
-"⏰ Hora: " + (hora || "não escolhida") + "\n\n" +
-
-"🍔 Comida: " + (comida || "não escolhida") + "\n\n" +
-
-"🎉 Vibe: " + (atividade || "não escolhida") + "\n\n" +
-
-"🎬 Cinema: " + (cinema || "não escolhido") + "\n\n" +
-
-"🍿 Filme: " + (filme || "não escolhido");
-
-document.getElementById("resumo").textContent =
-texto;
-
-}
-
-
