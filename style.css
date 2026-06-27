@@ -19,7 +19,11 @@ p{
     color:red;
     font-size:80px;
 }
-#data{ 
+#comidaEscolhida, #atividadeEscolhida, #cinemaEscolhido, #filmeEscolhido{
+    color:red;  
+    font-size:35px;
+}
+data{ 
     color:red;
     font-size:100px;
 }
