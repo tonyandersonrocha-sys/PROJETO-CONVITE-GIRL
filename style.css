@@ -23,6 +23,14 @@ p{
     color:red;  
     font-size:35px;
 }
+.Comida{
+    color: blueviolet;
+    font-size: 30px;
+}
+
+#escolherComida{
+    font-size: 45px;
+}
 data{ 
     color:red;
     font-size:100px;
@@ -194,7 +202,7 @@ button{
 
     margin: 8px auto;
 
-    font-size: 16px;
+    
 }
 
 /* Botões de continuar */
@@ -206,7 +214,7 @@ button{
     min-height: 64px;
     height: auto;
 
-    font-size: 15px;
+    font-size: 30px;
     margin-top: 18px;
 }
 #tela3 label{
